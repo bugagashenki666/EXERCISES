@@ -16,7 +16,7 @@ public class workWithArrays{
         Random r = new Random();
         for (int i = 0; i < this.arrayT.length; i++)
         {
-            arrayT[i] = r.nextInt();
+            arrayT[i] = r.nextInt(10);
         }
     }
     public String toString()
@@ -83,16 +83,48 @@ public class workWithArrays{
     {
         int t = arrayT[a]; arrayT[a] = arrayT[b]; arrayT[b] = t;
     }
-    public void sortBySelection(int start_idx, int end_idx)
+    public void sortBySelection(int start_idx, int end_idx, String direction)//direction = "ASC" - упорядочивает по возрастанию по умолчанию упорядочивает по убыванию
     {
-        for(int i = start_idx ; i <= end_idx ; i++)
-        {
-            int min = i;
-            for(int j = i + 1 ; j <= end_idx ; j++)
-            {
-                if(arrayT[min] > arrayT[j]) min = j;
+        if(direction.equals("ASC")) {
+            for (int i = start_idx; i <= end_idx; i++) {
+                int min = i;
+                for (int j = i + 1; j <= end_idx; j++) {
+                    if (arrayT[min] > arrayT[j]) min = j;
+                }
+                this.exchange(i, min);
             }
-            this.exchange(i, min);
+        }
+        else
+        {
+            for (int i = start_idx; i <= end_idx; i++)
+            {
+                int max = i;
+                for (int j = i + 1; j <= end_idx; j++)
+                {
+                    if (arrayT[max] < arrayT[j]) max = j;
+                }
+                this.exchange(i, max);
+            }
+        }
+    }
+
+    public void sortByBubble(int start_idx, int stop_idx, String direction)//direction = "ASC" - упорядочивает по возрастанию по умолчанию упорядочивает по убыванию
+    {
+        if(direction.equals("ASC"))
+        {
+            for(int i = start_idx ; i < stop_idx ; i++) {
+                for (int j = stop_idx; j > i; j--) {
+                    if (arrayT[j] < arrayT[j - 1]) this.exchange(j, j - 1);
+                }
+            }
+        }
+        else
+        {
+            for(int i = start_idx ; i < stop_idx ; i++) {
+                for (int j = stop_idx; j > i; j--) {
+                    if (arrayT[j] > arrayT[j - 1]) this.exchange(j, j - 1);
+                }
+            }
         }
     }
 }

@@ -2,11 +2,12 @@ public class Main {
 
     public static void main(String[] args)
     {
-        int N = 10;
+        int N = 5;
         workWithArrays wwa = new workWithArrays(N);
-        //wwa.init(10);
+        wwa.init(N);
         System.out.println("Исходный массив: " + wwa.toString());
-        wwa.sortBySelection(0, N - 1);
+        wwa.sortByBubble(0, N - 1, "DESC");
+        //wwa.sortBySelection(0, N - 1, "ASC");
         System.out.println("Отсортированный массив: " + wwa.toString());
         if (wwa.isPositive()) System.out.println("Все элементы массива положительны");
         else System.out.println("Не все элементы массива положительны");
