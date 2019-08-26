@@ -1,4 +1,6 @@
+
 import java.util.Random;
+import java.util.Scanner;
 
 public class workWithArrays{
     public int arrayT[];
@@ -11,6 +13,34 @@ public class workWithArrays{
             else arrayT[i] = 2;
         }
     }
+
+    public workWithArrays()
+    {
+
+    }
+
+    public void enterNumbers() {
+        enterNumbers(10);
+    }
+
+    public void enterNumbers(int N)
+    {
+        Scanner sc = new Scanner(System.in);
+        this.arrayT = new int[N];
+        for(int i = 0 ; i < N;)
+        {
+            try
+            {
+                this.arrayT[i] = Integer.parseInt(sc.next());
+                i++;
+            }
+            catch(java.lang.NumberFormatException e)
+            {
+
+            }
+        }
+    }
+
     public void init(int N) {
         this.arrayT = new int[N];
         Random r = new Random();

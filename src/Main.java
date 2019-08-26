@@ -3,8 +3,9 @@ public class Main {
     public static void main(String[] args)
     {
         int N = 5;
-        workWithArrays wwa = new workWithArrays(N);
-        wwa.init(N);
+        workWithArrays wwa = new workWithArrays();
+        wwa.enterNumbers(N);
+        //wwa.init(N);
         System.out.println("Исходный массив: " + wwa.toString());
         wwa.sortByBubble(0, N - 1, "DESC");
         //wwa.sortBySelection(0, N - 1, "ASC");
