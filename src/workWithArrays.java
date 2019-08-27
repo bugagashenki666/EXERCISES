@@ -16,7 +16,8 @@ public class workWithArrays{
 
     public workWithArrays()
     {
-
+        //this.init(10);
+        //this.enterNumbers(10);
     }
 
     public void enterNumbers() {
@@ -31,7 +32,7 @@ public class workWithArrays{
         {
             try
             {
-                this.arrayT[i] = Integer.parseInt(sc.next());
+                this.arrayT[i] = sc.nextInt();
                 i++;
             }
             catch(java.lang.NumberFormatException e)
