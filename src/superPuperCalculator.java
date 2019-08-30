@@ -8,10 +8,12 @@ public class superPuperCalculator {
         //System.out.println(expr);
 
         expr = expr.replaceAll("[A-Za-z]", "");
+        expr = expr.replaceAll("/s", "");
         if(Character.isDigit(expr.charAt(0))) expr = "+" + expr;
         //System.out.println(expr);
         String numbers[] = expr.split("[*+-/%]{1,2}");
         String signs[] = expr.split("[0-9]+");
+
 
         //for(int i = 0 ; i < numbers.length ; i ++){System.out.print(numbers[i] + "     ");}
         //for(int i = 0 ; i < signs.length ; i ++){System.out.print(signs[i] + "     ");}
@@ -51,11 +53,13 @@ public class superPuperCalculator {
                         break;
                     case "*-":
                         result = -result * Integer.parseInt(exprAr[i + 1]);
+                        break;
                     case "*":
                         result = result * Integer.parseInt(exprAr[i + 1]);
                         break;
                     case "/-":
                         result = - result / Integer.parseInt(exprAr[i + 1]);
+                        break;
                     case "/":
                         result = result / Integer.parseInt(exprAr[i + 1]);
                         break;
